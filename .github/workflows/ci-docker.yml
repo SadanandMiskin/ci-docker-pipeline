@@ -3,9 +3,7 @@ on:
   push:
     branches:
       - master
-          
-env:
-
+  
 
 jobs:
   setup:
