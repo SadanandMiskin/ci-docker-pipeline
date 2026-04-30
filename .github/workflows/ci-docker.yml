@@ -12,7 +12,15 @@ jobs:
 
   testing:
     needs: setup
+    runs-on: ubuntu-latest
+    container: node:trixie
     steps:
+
+      - name: Download node_modules
+        uses: actions/download-artifact@v4
+        with:
+          name: node_modules
+
       - name: test the app
         run: npm run test
     # runs-on: ubuntu-latest
