@@ -30,7 +30,7 @@ jobs:
           key: ${{ runner.os }}-key-${{ hashFiles('**/package-lock.json') }}
 
       - name: Install Dependencies
-        if: steps.cache-npm.outputs.cache-hit != 'true'
+        # if: steps.cache-npm.outputs.cache-hit != 'true'
         run: npm ci
 
       - name: Upload node_modules
