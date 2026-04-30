@@ -19,10 +19,10 @@ jobs:
       - name: fetch code
         uses: actions/checkout@v4
 
-      - name: Download node_modules
-        uses: actions/download-artifact@v4
-        with:
-          name: node_modules
+      # - name: Download node_modules
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: node_modules
 
       - name: install dependencies
         run: npm ci
