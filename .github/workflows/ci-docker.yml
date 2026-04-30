@@ -28,7 +28,7 @@ jobs:
         run: npm ci
 
       - name: test the app
-        run: npm run test
+        run: npx vitest run src
     # runs-on: ubuntu-latest
     # environment: testing
 
