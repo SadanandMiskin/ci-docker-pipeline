@@ -19,36 +19,27 @@ jobs:
       - name: fetch code
         uses: actions/checkout@v4
 
-      # - name: Download node_modules
-      #   uses: actions/download-artifact@v4
-      #   with:
-      #     name: node_modules
-
       - name: install dependencies
         run: npm ci
 
       - name: test the app
         run: npx vitest run src
-    # runs-on: ubuntu-latest
-    # environment: testing
-
-    # container:
-    #   image: node:trixie
 
 
-    # steps:
-    #   - name: Fetch Code
-    #     uses: actions/checkout@v4
+  build:
+    needs: testing
+    runs-on: ubuntu-latest
+    container: node:alpine
+    steps:
+      - name: fetch code
+        uses: actions/checkout@v4
 
-    #   - name: Cache dependencies
-    #     uses: actions/cache@v5
-    #     id: cache-npm
-    #     with:
-    #       path: ~/.npm
-    #       key: ${{ runner.os }}-key-${{ hashFiles('**/package-lock.json') }}
+      - name: Download node-modules
+        uses: actions/download-artifact@v5
+        with:
+          name: node_modules
 
-    #   - name: Install Dependencies
-    #     if: steps.cache-npm.outputs.cache-hit != 'true'
-    #     run: npm ci
+      - name: Build 
+        run: npm run build
 
       
