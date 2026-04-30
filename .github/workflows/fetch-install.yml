@@ -10,7 +10,7 @@ on:
           
 
 jobs:
-  testing:
+  setup:
     runs-on: ubuntu-latest
     environment: testing
 
