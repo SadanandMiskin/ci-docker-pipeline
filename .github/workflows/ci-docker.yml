@@ -6,9 +6,12 @@ on:
           
 
 jobs:
-  testing:
+  setup:
     uses: ./.github/workflows/fetch-install.yml
 
+
+  testing:
+    needs: setup
     steps:
       - name: test the app
         run: npm run test
