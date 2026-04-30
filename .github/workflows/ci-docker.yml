@@ -1,0 +1,37 @@
+name: Fetch and Install
+on:
+  push:
+    branches:
+      - master
+          
+
+jobs:
+  testing:
+    uses: ./.github/workflows/fetch-install.yml
+
+    steps:
+      - name: test the app
+        run: npm run test
+    # runs-on: ubuntu-latest
+    # environment: testing
+
+    # container:
+    #   image: node:trixie
+
+
+    # steps:
+    #   - name: Fetch Code
+    #     uses: actions/checkout@v4
+
+    #   - name: Cache dependencies
+    #     uses: actions/cache@v5
+    #     id: cache-npm
+    #     with:
+    #       path: ~/.npm
+    #       key: ${{ runner.os }}-key-${{ hashFiles('**/package-lock.json') }}
+
+    #   - name: Install Dependencies
+    #     if: steps.cache-npm.outputs.cache-hit != 'true'
+    #     run: npm ci
+
+      
